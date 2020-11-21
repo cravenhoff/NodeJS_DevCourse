@@ -11,28 +11,37 @@ const path = require("path");
 // })
 
 // Create and write file
-fs.writeFile(path.join(__dirname, "/test", "hello.txt"), "Hello Node World!", err => {
+// fs.writeFile(path.join(__dirname, "/test", "hello.txt"), "Hello Node World!", err => {
+//     if(err) {
+//         throw err;
+//     }
+
+//     console.log("File created and written to...");
+
+//     // Append file
+//     fs.appendFile(path.join(__dirname, "/test", "hello.txt"), " I love Node.JS.", err => {
+//         if(err) {
+//             throw err;
+//         }
+    
+//         console.log("File appended...");
+//     })
+// })
+
+// Read file
+// fs.readFile(path.join(__dirname, "/test", "hello.txt"), "utf8", (err, data) => {
+//     if(err) {
+//         throw err
+//     } else {
+//         console.log(data);
+//     }
+// })
+
+// Rename file
+fs.rename(path.join(__dirname, "/test", "hello.txt"), path.join(__dirname, "/test", "helloworld.txt"), err => {
     if(err) {
         throw err;
     }
 
-    console.log("File created and written to...");
-
-    // Append file
-    fs.appendFile(path.join(__dirname, "/test", "hello.txt"), " I love Node.JS.", err => {
-        if(err) {
-            throw err;
-        }
-    
-        console.log("File appended...");
-    })
-})
-
-// Read file
-fs.readFile(path.join(__dirname, "/test", "hello.txt"), "utf8", (err, data) => {
-    if(err) {
-        throw err
-    } else {
-        console.log(data);
-    }
+    console.log("File renamed...");
 })
