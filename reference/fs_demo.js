@@ -27,3 +27,12 @@ fs.writeFile(path.join(__dirname, "/test", "hello.txt"), "Hello Node World!", er
         console.log("File appended...");
     })
 })
+
+// Read file
+fs.readFile(path.join(__dirname, "/test", "hello.txt"), "utf8", (err, data) => {
+    if(err) {
+        throw err
+    } else {
+        console.log(data);
+    }
+})
