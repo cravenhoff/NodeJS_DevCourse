@@ -18,3 +18,12 @@ fs.writeFile(path.join(__dirname, "/test", "hello.txt"), "Hello Node World!", er
 
     console.log("File created and written to...");
 })
+
+// Replace contents of file
+fs.writeFile(path.join(__dirname, "/test", "hello.txt"), " I love Node.JS.", err => {
+    if(err) {
+        throw err;
+    }
+
+    console.log("File overidden...");
+})
