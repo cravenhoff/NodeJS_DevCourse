@@ -20,3 +20,6 @@ console.log(os.homedir());
 
 // Uptime
 console.log(os.uptime());
+
+// User Info
+console.log(os.userInfo());
