@@ -23,3 +23,6 @@ console.log(os.uptime());
 
 // User Info
 console.log(os.userInfo());
+
+// Host name
+console.log(os.hostname());
