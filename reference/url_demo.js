@@ -9,3 +9,6 @@ console.log(myUrl.toString());
 
 // Get host (root domain)
 console.log(myUrl.host);
+
+// Get hostname
+console.log(myUrl.hostname);
