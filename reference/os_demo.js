@@ -20,3 +20,12 @@ console.log(os.homedir());
 
 // Uptime
 console.log(os.uptime());
+
+// User Info
+console.log(os.userInfo());
+
+// Host name
+console.log(os.hostname());
+
+// OS Release Date
+console.log(os.release());
