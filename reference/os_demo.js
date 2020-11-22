@@ -26,3 +26,6 @@ console.log(os.userInfo());
 
 // Host name
 console.log(os.hostname());
+
+// OS Release Date
+console.log(os.release());
