@@ -25,6 +25,15 @@ logger.on("message", (data) => {
                 console.log("File successfully appended...");
             }
         })
+
+        // Read from logs.txt file
+        fs.readFile(path.join(__dirname, "logs.txt"), "utf8", (err, data) => {
+            if(err) {
+                throw err;
+            }
+
+            console.log(data);
+        })
     })
 })
 
