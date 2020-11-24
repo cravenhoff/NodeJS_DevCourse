@@ -9,13 +9,31 @@ logger.on("message", (data) => {
     // Console out data
     // console.log("Listener Called: ", data);
 
-    // Append data to logs.txt file and read from it
+    // Write data to logs.txt file
     fs.writeFile(path.join(__dirname, "logs.txt"), `${data.id}: ${data.msg} \n`, err => {
         if(err) {
             throw err;
         }
 
         console.log("File successfully written to...");
+
+        // Append data to logs.txt file
+        fs.appendFile(path.join(__dirname, "logs.txt"), `${data.id}: ${data.msg} \n`, err => {
+            if(err) {
+                throw error;
+            } else {
+                console.log("File successfully appended...");
+            }
+        })
+
+        // Read from logs.txt file
+        fs.readFile(path.join(__dirname, "logs.txt"), "utf8", (err, data) => {
+            if(err) {
+                throw err;
+            }
+
+            console.log(data);
+        })
     })
 })
 
