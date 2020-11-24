@@ -1,9 +1,12 @@
-const Person = require("./person.js");
+const Logger = require("./logger");
 
-const person1 = new Person("John Doe", 30);
+// Instantiate new logger{} object
+const logger = new Logger();
 
-console.log("Hello from Node.js...");
-console.log(person1);
-console.log(person1.name);
-console.log(person1.age);
-person1.greeting();
+logger.on("message", (data) => {
+    console.log("Listener Called: ", data);
+})
+
+logger.log("Hello There!");
+logger.log("Hello You!");
+logger.log("Hello People!");
