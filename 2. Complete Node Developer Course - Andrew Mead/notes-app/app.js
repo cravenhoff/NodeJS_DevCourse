@@ -49,3 +49,8 @@ console.log(inactiveLink);
 console.log(visitedLink);
 console.log(activeLink);
 console.log(text);
+
+// -- Command line arguments
+const args = process.argv; // Holds any arguments passed to the terminal
+console.log(args); // args[0] => node exectutable and args[1] => javascript filepath
+console.log(args[2]);
