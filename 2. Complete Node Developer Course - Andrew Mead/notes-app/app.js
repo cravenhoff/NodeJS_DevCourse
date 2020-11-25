@@ -16,14 +16,16 @@ yargs.command({
             type: "string"
         },
         note: {
-            describe: "Note content/message",
+            describe: "Note content/body",
             demandOption: true,
             type: "string"
         }
     },
     handler: function(argv) {
         console.log(chalk.bgGreen.black("Adding a new note!"));
-        console.log(argv, "\n");
+        // Output title property and option
+        console.log("Title: " + argv.title);
+        console.log("Note: " + argv.note);
     }
 });
 
@@ -61,4 +63,4 @@ yargs.command({
 })
 
 // yargs parsing
-console.log(yargs.argv); 
+yargs.parse();
