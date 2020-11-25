@@ -1,51 +1,66 @@
-/* --- Challenge: Define and use a function in a new file ---
-1. Create a new file called notes.js
-2. Create getNotes function that returns "Your notes..."
-3. Export getNotes function
-4. From app.js, load in and call the function printing message to console
-*/
-
 const chalk = require("chalk");
-const validator = require("validator"); // validator npm package
-const getNotes = require("./notes.js"); // Include or import notes.js
+const yargs = require("yargs");
+const getNotes = require("./notes.js");
 
-// Invoke getNotes() function
-const userNote = getNotes();
+// Customize yargs version
+yargs.version("1.1.0");
 
-console.log(userNote); // Output getNotes() contents
-console.log(getNotes()); // Another method of invokation and retrieval
+// Create "add" command
+yargs.command({
+    command: "add",
+    describe: "Add a new note",
+    builder: { // Command options
+        title: {
+            describe: "Note title",
+            demandOption: true,
+            type: "string"
+        },
+        note: {
+            describe: "Note content/body",
+            demandOption: true,
+            type: "string"
+        }
+    },
+    handler: function(argv) {
+        console.log(chalk.bgGreen.black("Adding a new note!"));
+        // Output title property and option
+        console.log("Title: " + argv.title);
+        console.log("Note: " + argv.note);
+    }
+});
 
-console.log(validator.isEmail("admin@example.com"));
-console.log(validator.isEmail("example.com"));
-console.log(validator.isURL("https://mead.io"));
-console.log(validator.isURL("https/mead.io"));
+// Create "remove" command
+yargs.command({
+    command: "remove",
+    describe: "Remove a note",
+    handler: function() {
+        console.log(chalk.bgRed.black("Removing the note!"));
+    }
+});
 
-/* --- Challenge: Use the chalk library in your project ---
-1. Install latest version of chalk
-2. Load chalk into app.js
-3. Use it to print the string "Success!" to the console in green
-4. Test your work
-
-Bonus: Use docs to mess around with other styles. Make text bold and inversed.
+/* --- Challenge: Add two new commands ---
+1. Setup command to support "list" command {print out placeholder message for now}
+2. Setup command to support "read" command {print out placeholder message for now}
+3. Test your wokr by running both commands and ensure correct output
 */
 
-// Use the text colors
-console.log(chalk.green("Success!"));
-console.log(chalk.red("Error!"));
-console.log(chalk.blue("In progress..."));
+// Create "list" command
+yargs.command({
+    command: "list",
+    describe: "List all notes",
+    handler: function() {
+        console.log(chalk.bgBlue.black("Listing all the notes!"));
+    }
+});
 
-// Background colors
-console.log(chalk.bgGreen.black("Hooray!"));
-console.log(chalk.bgRed("Oops!"));
-console.log(chalk.bgBlueBright("Smackdown!"));
+// Create "read" command
+yargs.command({
+    command: "read",
+    describe: "Read note",
+    handler: function() {
+        console.log(chalk.bgWhite.black("Reading the note!"));
+    }
+})
 
-// Underline and bold
-const inactiveLink = chalk.underline.bold.green("Inactive link");
-const visitedLink = chalk.underline.bold.magenta("Visited link");
-const activeLink = chalk.underline.bold.blueBright("Active link");
-const text = chalk.underline.bold.white("Normal text");
-
-console.log(inactiveLink);
-console.log(visitedLink);
-console.log(activeLink);
-console.log(text);
+// yargs parsing
+yargs.parse();
