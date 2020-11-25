@@ -1,51 +1,64 @@
+// Import node modules
 const http = require("http");
-const path = require("path");
 const fs = require("fs");
+const path = require("path");
 
-// Create new server
+// Create server
 const server = http.createServer((req, res) => {
-    // Test request url
-    console.log(req.url);
+    // Build file path
+    let filePath = path.join(__dirname, "public", req.url === "/" ? "index.html" : req.url);
 
-    // index.html file and root url
-    if(req.url === "/") {
-        // Output contents of public/index.html file
-        fs.readFile(path.join(__dirname, "public", "index.html"), (err, content) => {
-            if(err) {
-                throw err;
+    // File extension
+    let extname = path.extname(filePath);
+
+    // Initial content type
+    let contentType = "text/html";
+
+    // Assign appropriate content type based on extname
+    switch(extname) {
+        case ".js":
+            contentType = "text/js";
+            break;
+        case ".css":
+            contentType = "text/css";
+            break;
+        case ".json":
+            contentType = "application/json";
+            break;
+        case ".png":
+            contentType = "image/png";
+            break;
+        case ".jpg":
+            contentType = "image/jpg";
+            break;
+    }
+
+    // Read file
+    fs.readFile(filePath, (err, content) => {
+        // Check for errors
+        if(err) {
+            // Page not found error
+            if(err.code = "ENOENT") {
+                fs.readFile(path.join(__dirname, "public", "404.html"), (err, content) => {
+                    if(err) {
+                        throw err;
+                    } else {
+                        res.writeHead(200, {"Content-Type":"text/html"});
+                        res.end(content, "utf8");
+                    }
+                })
             } else {
-                // Specify the status code and content type
-                res.writeHead(200, {"Content-Type":"text/html"});
-                res.end(content);
+                // Some server error
+                res.writeHead(500);
+                res.end(`Server Error: ${err.code}`);
             }
-        })
-    }
-
-    // about.html file
-    if(req.url === "/about") {
-        // Output contents of public/index.html file
-        fs.readFile(path.join(__dirname, "public", "about.html"), (err, content) => {
-            if(err) {
-                throw err;
-            } else {
-                // Specify the status code and content type
-                res.writeHead(200, {"Content-Type":"text/html"});
-                res.end(content);
-            }
-        })
-    }
-
-    // Rest API or Microserver example
-    if(req.url === "/api/users") {
-        const users = [
-            {name: "Bob Smith", age: 40},
-            {name: "John Doe", age: 30}
-        ];
-
-        res.writeHead(200, {"Content-Type":"application/json"});
-        res.end(JSON.stringify(users));
-    }
-});
+        } else {
+            // Success
+            res.writeHead(200, {"Content-Type":contentType});
+            res.end(content, "utf8");
+        }
+    })
+})
 
 // Port listener
 const PORT = process.env.PORT || 5000;
