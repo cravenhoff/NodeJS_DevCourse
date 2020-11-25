@@ -13,3 +13,4 @@ const userNote = getNotes();
 
 // Output getNotes() contents
 console.log(userNote);
+console.log(getNotes()); // Another method of invokation and retrieval
