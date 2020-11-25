@@ -1,21 +1,27 @@
-const chalk = require("chalk"); // chalk npm library
+const chalk = require("chalk");
 const yargs = require("yargs");
-const getNotes = require("./notes.js"); // Include or import notes.js
+const getNotes = require("./notes.js");
 
-// -- Command line arguments
-const args = process.argv; // Holds any arguments passed to the terminal
-console.log(chalk.bgWhite.red("--- Unparsed ---"));
-console.log(args); // args[0] => node exectutable and args[1] => javascript filepath
-// console.log(chalk.inverse(args[2])); // Raw arguments, no parsing
+// Customize yargs version
+yargs.version("1.1.0");
 
-// CL third argument
-const command = process.argv[2];
+// Create "add" command
+yargs.command({
+    command: "add",
+    describe: "Add a new note",
+    handler: function() {
+        console.log(chalk.bgGreen.black("Adding a new note!"));
+    }
+});
 
-if(command === "add") {
-    console.log(chalk.bgGreen.black("Adding note!"));
-} else if(command === "remove") {
-    console.log(chalk.bgRed.black("Removing note!"));
-}
+// Create "remove" command
+yargs.command({
+    command: "remove",
+    describe: "Remove a note",
+    handler: function() {
+        console.log(chalk.bgRed.black("Removing the note!"));
+    }
+});
 
-console.log(chalk.bgWhiteBright.green("--- Parsed ---"));
-console.log(yargs.argv); // Parse command line arguments
+// yargs parsing
+console.log(yargs.argv); 
