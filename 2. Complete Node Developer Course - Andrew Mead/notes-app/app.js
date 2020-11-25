@@ -1,8 +1,15 @@
-// Provide relative path to utils.js to import contents
-const add = require("./utils.js");
+/* --- Challenge: Define and use a function in a new file ---
+1. Create a new file called notes.js
+2. Create getNotes function that returns "Your notes..."
+3. Export getNotes function
+4. From app.js, load in and call the function printing message to console
+*/
 
-// Use add() function in utils.js file
-const sum = add(4, -2);
+// Include or import notes.js
+const getNotes = require("./notes.js");
 
-// Output "sum" variable
-console.log(sum);
+// Invoke getNotes() function
+const userNote = getNotes();
+
+// Output getNotes() contents
+console.log(userNote);
