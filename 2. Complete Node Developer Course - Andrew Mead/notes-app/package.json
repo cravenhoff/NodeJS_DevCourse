@@ -12,6 +12,7 @@
   "author": "cravenhoff",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.0",
     "validator": "^13.1.17"
   }
 }
