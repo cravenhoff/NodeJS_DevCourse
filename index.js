@@ -8,6 +8,8 @@ const server = http.createServer((req, res) => {
     console.log(req.url);
 
     if(req.url === "/") {
+        // Specify the status code and content type
+        res.writeHead(200, {"Content-Type":"text/html"});
         res.end("<h1>Home</h1>");
     }
 });
