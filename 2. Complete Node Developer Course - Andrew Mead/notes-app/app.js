@@ -9,8 +9,21 @@ yargs.version("1.1.0");
 yargs.command({
     command: "add",
     describe: "Add a new note",
-    handler: function() {
+    builder: { // Command options
+        title: {
+            describe: "Note title",
+            demandOption: true,
+            type: "string"
+        },
+        note: {
+            describe: "Note content/message",
+            demandOption: true,
+            type: "string"
+        }
+    },
+    handler: function(argv) {
         console.log(chalk.bgGreen.black("Adding a new note!"));
+        console.log(argv, "\n");
     }
 });
 
