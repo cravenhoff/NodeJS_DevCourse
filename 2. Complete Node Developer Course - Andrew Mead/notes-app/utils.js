@@ -1,6 +1,12 @@
 console.log("utils.js");
 
+// "name" variable
 const name = "Mike";
 
-// Export file
-module.exports = name;
+// Define a "sum" function
+const add = function(a, b) {
+    return a + b;
+}
+
+// Export add() function
+module.exports = add;
