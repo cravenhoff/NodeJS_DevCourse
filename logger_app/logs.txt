@@ -5,3 +5,11 @@ c18f4c32-f320-4c22-b487-da1d931b58ce: Hello People!
 4c6d9c47-b3ff-4e36-8cf5-d45a1170d548: We just proved them wrong, again... 
 8774b97a-ad28-44ae-ab4f-a4136afd3b8d: Who said it couldn't be done, huh?! 
 73a1252e-219c-4fcc-855c-038684a9c2af: Adding more now that we got the file logging correct. 
+b53fa898-9aec-4b09-a7f7-8dfe127a717b: Adding more now that we got the file logging correct. 
+b33ffd51-0298-462f-9ae5-0c497d357993: Let's give it up some more for the hussle. 
+f0bf50b1-02bc-43a3-8db4-a6bc00f652da: We just proved them wrong, again... 
+3e6ec247-c032-4122-920a-e3c45669f11a: Who said it couldn't be done, huh?! 
+5a79014b-8c5a-41c7-bb03-8743172f5cd1: We optimized the codebase and made it better and much more clearner! 
+410392d8-9008-4dfc-a8c1-e8458010edfd: appendFil() and readFile() did the job perfectly. 
+6c63057d-984f-4131-a872-29346926ca19: Let's see if we can build on from this to create even better applications... 
+e3145da3-1f59-4e2e-8d52-20f8fcb37006: Peace... This is the last message from me... for now! :) 
