@@ -1,4 +1,20 @@
-063d9886-026e-4ef8-8b2f-f6e9b7037f2f: Hello People! 
-36d1517b-5c52-4bde-a2b4-77a9ae1e1bf8: Hello There! 
-cdb4d2f2-4a1a-49ed-b9da-d4b4b773b336: Hello You! 
-063d9886-026e-4ef8-8b2f-f6e9b7037f2f: Hello People! 
+logs.txt file created...
+c71c8f30-afdf-4912-a04e-38c08ee6800f: Hello You! 
+9cf8cfa8-e67f-42d8-ad7f-67cfb27f8b99: Hello There! 
+1d86c37b-cd64-418a-b20c-5eec5bf640d6: Hello People! 
+30867077-3959-4088-bbb6-d03db22e4b78: Hello There! 
+2a0f3535-71d8-4f26-a6d7-b4cb09315c50: Hello You! 
+521cb4b4-b118-4f95-bc81-1bb7349402d7: Hello People! 
+e78d1bf5-0d9f-46b9-b338-dc15247d957b: Hello There! 
+442fc5a3-6986-495f-be59-450304174e80: Hello You! 
+b7bac468-9c02-4981-8048-1d4e1e64b210: Hello People! 
+6fcf7b38-0220-4bd7-9350-7dad162b0349: Hello There! 
+cd518165-ad68-4420-a9dd-119024ddd082: Hello You! 
+597564e7-204c-49c5-bfbc-797a67688f58: Hello People! 
+8d1f2d78-5f50-4764-8960-7db153ff2369: Hello You! 
+7501eafa-4a0d-47de-a04d-d8a04b942d75: Let's give it up some more for the hussle. 
+6e6e6d60-56da-4db8-863a-1ef6d2f5339c: Hello People! 
+c7814f89-6350-4f8d-9d43-e2e91db513db: Adding more now that we got the file logging correct. 
+3e0e8643-3322-4d4d-8c8e-21ba0a330c5c: Hello There! 
+d1d493e7-d5a6-4e0c-b257-cf011dd8dcd0: Who said it couldn't be done, huh?! 
+320b8493-07e7-413b-8380-d94c91b7cb51: We just proved them wrong, again... 
