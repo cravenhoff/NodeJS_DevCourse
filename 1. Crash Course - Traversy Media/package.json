@@ -1,0 +1,28 @@
+{
+  "name": "nodejs_crashcourse",
+  "version": "1.0.0",
+  "description": "Node JS Crash Course - Take 2 by Traversy Media.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cravenhoff/NodeJS_CrashCourse.git"
+  },
+  "keywords": [
+    "NodeJS"
+  ],
+  "author": "Crystal Kewe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cravenhoff/NodeJS_CrashCourse/issues"
+  },
+  "homepage": "https://github.com/cravenhoff/NodeJS_CrashCourse#readme",
+  "dependencies": {
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
