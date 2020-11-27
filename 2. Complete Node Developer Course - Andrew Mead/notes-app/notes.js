@@ -80,17 +80,14 @@ const listNotes = () => {
 const readNote = title => {
     const notes = loadNotes();
 
-    const matchingNote = notes.filter(note => note.title === title);
-    console.log(matchingNote);
-    console.log(matchingNote.length);
+    const matchingNote = notes.find(note => note.title === title);
 
-    if(matchingNote.length === 0) {
-        console.log(chalk.bgRed.black("No note with that title exists!"));
+    if(matchingNote) {
+        console.log(chalk.bgGreen.black(matchingNote.title));
+            console.log(matchingNote.body);
     } else {
-        matchingNote.forEach(note => {
-            console.log(chalk.bgGreen.black(note.title));
-            console.log(note.body);
-        })
+        console.log(chalk.bgRed.black("No note with that title exists!"));
+
     }
 
     // notes.forEach(note => {
