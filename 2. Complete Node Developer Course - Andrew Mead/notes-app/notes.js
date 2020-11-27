@@ -1,3 +1,6 @@
+const fs = require("fs");
+const chalk = require("chalk");
+
 // getNotes() function
 const getNotes = function() {
     return "Your notes...";
@@ -5,11 +8,29 @@ const getNotes = function() {
 
 // addNote()
 const addNote = function(title, body) {
-    console.log(title);
-    console.log(body);
+    // console.log(title);
+    // console.log(body);
+
+    const notes = loadNotes();
+
+    notes.push({
+        title: title,
+        body: body
+    });
+
 }
-// saveNote()
+
 // loadNotes()
+const loadNotes = function() {
+    try {
+        const noteData = fs.readFileSync("notes.json");
+        const bufferData = noteData.toString();
+        const parsedNote = JSON.parse(bufferData);
+    } catch(e) {
+        return [];
+    }
+}
+
 // removeNote()
 
 // Export getNotes()
