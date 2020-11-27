@@ -39,17 +39,12 @@ const fs = require("fs");
 
 // Load and parse JSON data
 const jsonData = fs.readFileSync("data.json");
-// console.log(jsonData);
 const bufferData = jsonData.toString();
-// console.log(bufferData);
 const user = JSON.parse(bufferData);
-// console.log(user);
 
 // Change name and age property
 user.name = "Crystal";
 user.age = 22;
 
 const userJSON = JSON.stringify(user);
-// console.log(userJSON);
 fs.writeFileSync("data.json", userJSON)
-
