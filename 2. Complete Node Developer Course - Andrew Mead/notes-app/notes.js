@@ -12,13 +12,26 @@ const addNote = function(title, body) {
     // console.log(body);
 
     const notes = loadNotes();
+    console.log(notes);
 
-    notes.push({
-        title: title,
-        body: body
+    // Check to see no duplicates
+    const duplicateNotes = notes.filter((note) => {
+        return note.title === title;
     });
+    console.log(duplicateNotes);
 
-    saveNote(notes);
+    if(duplicateNotes.length === 0) {
+        notes.push({
+            title: title,
+            body: body
+        });
+        console.log(notes);
+    
+        saveNote(notes);
+        console.log(chalk.bgGreen.black("New note added!"));
+    } else {
+        console.log(chalk.bgRed.black("Note taken!"));
+    }
 
 }
 
@@ -34,7 +47,7 @@ const loadNotes = function() {
     try {
         const noteData = fs.readFileSync("notes.json");
         const bufferData = noteData.toString();
-        const parsedNote = JSON.parse(bufferData);
+        return parsedNote = JSON.parse(bufferData);
     } catch(e) {
         return [];
     }

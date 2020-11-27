@@ -22,7 +22,7 @@ yargs.command({
         }
     },
     handler: function(argv) {
-        console.log(chalk.bgGreen.black("Adding a new note!"));
+        console.log(chalk.underline.green("Adding a new note..."));
         notes.addNote(argv.title, argv.body);
         // Output title property and option
         // console.log("Title: " + argv.title);
