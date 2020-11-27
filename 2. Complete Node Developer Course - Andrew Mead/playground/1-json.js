@@ -23,9 +23,33 @@ const fs = require("fs");
 // fs.writeFileSync("1-json.json", JSONData);
 
 // Read stored JSON Data
-const dataBuffer = fs.readFileSync("1-json.json");
-console.log(dataBuffer); // Output buffer data from JSON File
-const dataJSON = dataBuffer.toString(); // Conver buffer data to JSON
-console.log(dataJSON);
-const data = JSON.parse(dataJSON); // Parse JSON string
-console.log(`${data.title} by ${data.author}`);
+// const dataBuffer = fs.readFileSync("1-json.json");
+// console.log(dataBuffer); // Output buffer data from JSON File
+// const dataJSON = dataBuffer.toString(); // Conver buffer data to JSON
+// console.log(dataJSON);
+// const data = JSON.parse(dataJSON); // Parse JSON string
+// console.log(`${data.title} by ${data.author}`);
+
+/* --- Challenge: Work with JSON and the file system ---
+1. Load and parse the JSON Data
+2. Change the name and age property using the info
+3. Stringify the changed object and overwrite the original data
+4. Test your work by viewing data in the JSON File
+*/
+
+// Load and parse JSON data
+const jsonData = fs.readFileSync("data.json");
+// console.log(jsonData);
+const bufferData = jsonData.toString();
+// console.log(bufferData);
+const user = JSON.parse(bufferData);
+// console.log(user);
+
+// Change name and age property
+user.name = "Crystal";
+user.age = 22;
+
+const userJSON = JSON.stringify(user);
+// console.log(userJSON);
+fs.writeFileSync("data.json", userJSON)
+
