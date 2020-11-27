@@ -22,13 +22,12 @@ const tasks = {
     ],
     // Property 2: getTasksToDo()
     getTasksToDo: function(tasks) {
-        console.log(this.tasks);
-        const incompleteTasks = this.tasks.filter(task => {
-            return task.completed == false;
-        });
+        // Short form ES6 Arrow Function
+        return this.tasks.filter(task => task.completed === false);
 
         return incompleteTasks;
     }
 }
 
+console.log("Tasks to do:");
 console.log(tasks.getTasksToDo());
