@@ -66,10 +66,14 @@ const removeNote = title => {
 
 // listNotes()
 const listNotes = () => {
-    console.log("Listing notes function...");
+    console.log(chalk.white.inverse("Your notes:"));
     const notes = loadNotes();
-    console.log(notes);
-    // return notes;
+
+    notes.forEach(note => {
+        console.log(note.title);
+    });
+    // console.log("Listing notes function...");
+    // console.log(notes);
 }
 
 // Export functions to use externally
