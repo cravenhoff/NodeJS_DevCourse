@@ -39,8 +39,9 @@ yargs.command({
 yargs.command({
     command: "remove",
     describe: "Remove a note",
-    handler: function() {
+    handler: function(argv) {
         console.log(chalk.bgRed.black("Removing note..."));
+        notes.removeNote(argv.title);
     }
 });
 
