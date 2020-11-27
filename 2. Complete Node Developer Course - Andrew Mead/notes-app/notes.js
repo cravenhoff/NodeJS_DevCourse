@@ -51,6 +51,10 @@ const loadNotes = function() {
 // removeNote()
 const removeNote = function(title) {
     console.log(chalk.bgYellow.black(`"${title}"`));
+
+    // Load current notes
+    const notes = loadNotes();
+    console.log(notes);
 }
 
 // Export getNotes()
