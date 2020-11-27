@@ -1,6 +1,6 @@
 const chalk = require("chalk");
 const yargs = require("yargs");
-const getNotes = require("./notes.js");
+const notes = require("./notes.js");
 
 // Customize yargs version
 yargs.version("1.1.0");
@@ -15,17 +15,18 @@ yargs.command({
             demandOption: true,
             type: "string"
         },
-        note: {
+        body: {
             describe: "Note content/body",
             demandOption: true,
             type: "string"
         }
     },
     handler: function(argv) {
-        console.log(chalk.bgGreen.black("Adding a new note!"));
+        console.log(chalk.underline.green("Adding a new note..."));
+        notes.addNote(argv.title, argv.body);
         // Output title property and option
-        console.log("Title: " + argv.title);
-        console.log("Note: " + argv.note);
+        // console.log("Title: " + argv.title);
+        // console.log("Body: " + argv.body);
     }
 });
 
