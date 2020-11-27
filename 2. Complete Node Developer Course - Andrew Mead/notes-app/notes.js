@@ -57,10 +57,11 @@ const removeNote = function(title) {
     console.log(notes);
 
     // Remove matching note using array.filter()
-    const matchingNote = notes.filter(note => {
-        return note.title === title;
+    const notesToKeep = notes.filter(note => {
+        return note.title !== title;
     });
-    console.log(matchingNote);
+    console.log(notesToKeep);
+    saveNote(notesToKeep);
 }
 
 // Export getNotes()
