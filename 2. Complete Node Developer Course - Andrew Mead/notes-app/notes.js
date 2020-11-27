@@ -55,6 +55,12 @@ const removeNote = function(title) {
     // Load current notes
     const notes = loadNotes();
     console.log(notes);
+
+    // Remove matching note using array.filter()
+    const matchingNote = notes.filter(note => {
+        return note.title === title;
+    });
+    console.log(matchingNote);
 }
 
 // Export getNotes()
