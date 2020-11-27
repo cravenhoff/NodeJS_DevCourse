@@ -11,9 +11,6 @@ const notes = require("./notes.js");
 // Customize yargs version
 yargs.version("1.1.0");
 
-// getNotes()
-// console.log(notes.getNotes());
-
 // Create "add" command
 yargs.command({
     command: "add",
@@ -95,12 +92,30 @@ yargs.command({
     }
 });
 
+/* --- Goal: Wire up read command ---
+1. Setup --title option for read command
+2. Create readNote in notes.js
+-- Search for note by title
+-- Find note and print title (styled) and body (plain)
+-- No note found? Print error in red.
+3. have the command handler call the function
+4. Test your work by running a couple of commands
+*/
+
 // Create "read" command
 yargs.command({
     command: "read",
     describe: "Read note",
-    handler() {
-        console.log(chalk.bgWhite.black("Reading the note!"));
+    builder: {
+        title: {
+            describe: "Note title",
+            demandOption: true,
+            type: "string"
+        }
+    },
+    handler(argv) {
+        console.log(chalk.bgWhite.black("Fetching note to read..."));
+        notes.readNote(argv.title);
     }
 })
 

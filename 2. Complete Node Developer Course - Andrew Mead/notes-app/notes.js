@@ -1,9 +1,6 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
-// getNotes() function
-const getNotes = () => "Your notes...";
-
 // addNote()
 const addNote = (title, body) => {
     const notes = loadNotes();
@@ -56,12 +53,10 @@ const removeNote = title => {
 
     if(notesToKeep.length < notes.length) {
         console.log(chalk.bgGreen.black("Note removed!"));
+        saveNote(notesToKeep);
     } else {
         console.log(chalk.bgRed.black("No note found!"));
     }
-
-    console.log(notesToKeep);
-    saveNote(notesToKeep);
 }
 
 // listNotes()
@@ -72,14 +67,25 @@ const listNotes = () => {
     notes.forEach(note => {
         console.log(note.title);
     });
-    // console.log("Listing notes function...");
-    // console.log(notes);
+}
+
+// readNote()
+const readNote = title => {
+    const notes = loadNotes();
+    const matchingNote = notes.find(note => note.title === title);
+
+    if(matchingNote) {
+        console.log(chalk.bgGreen.black(matchingNote.title));
+            console.log(matchingNote.body);
+    } else {
+        console.log(chalk.bgRed.black("No note with that title exists!"));
+    }
 }
 
 // Export functions to use externally
 module.exports = {
     addNote: addNote,
-    getNotes: getNotes,
     removeNote: removeNote,
-    listNotes: listNotes
+    listNotes: listNotes,
+    readNote: readNote
 };
