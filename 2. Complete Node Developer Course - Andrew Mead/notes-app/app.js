@@ -22,7 +22,7 @@ yargs.command({
         }
     },
     handler: function(argv) {
-        console.log(chalk.underline.green("Adding a new note..."));
+        console.log(chalk.underline.green("Progress: Adding new note..."));
         notes.addNote(argv.title, argv.body);
     }
 });
@@ -40,7 +40,7 @@ yargs.command({
     command: "remove",
     describe: "Remove a note",
     handler: function() {
-        console.log(chalk.bgRed.black("Removing the note!"));
+        console.log(chalk.bgRed.black("Removing note..."));
     }
 });
 
