@@ -57,7 +57,7 @@ yargs.command({
         }
     },
     handler: function(argv) {
-        console.log(chalk.bgRed.black("Removing note..."));
+        console.log(chalk.underline.red("Progress: Removing note..."));
         notes.removeNote(argv.title);
     }
 });
