@@ -12,25 +12,23 @@ const addNote = function(title, body) {
     // console.log(body);
 
     const notes = loadNotes();
-    console.log(notes);
 
     // Check to see no duplicates
     const duplicateNotes = notes.filter((note) => {
         return note.title === title;
     });
-    console.log(duplicateNotes);
 
     if(duplicateNotes.length === 0) {
         notes.push({
             title: title,
             body: body
         });
-        console.log(notes);
     
         saveNote(notes);
-        console.log(chalk.bgGreen.black("New note added!"));
+        console.log(notes);
     } else {
-        console.log(chalk.bgRed.black("Note taken!"));
+        console.log(chalk.bgRed.black("Warning: Note taken!"));
+        console.log(duplicateNotes);
     }
 
 }
