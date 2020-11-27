@@ -12,7 +12,7 @@ const notes = require("./notes.js");
 yargs.version("1.1.0");
 
 // getNotes()
-console.log(notes.getNotes());
+// console.log(notes.getNotes());
 
 // Create "add" command
 yargs.command({
@@ -77,7 +77,6 @@ yargs.command({
 3. Test your work by running both commands and ensure correct output
 */
 
-
 /* --- Goal: Wire up list command ---
 1. Create and export listNotes from notes.js
 -- "Your notes" using chalk
@@ -91,7 +90,8 @@ yargs.command({
     command: "list",
     describe: "List all notes",
     handler() {
-        console.log(chalk.bgBlue.black("Listing all the notes!"));
+        console.log(chalk.bgBlue.black("Listing notes!"));
+        notes.listNotes();
     }
 });
 

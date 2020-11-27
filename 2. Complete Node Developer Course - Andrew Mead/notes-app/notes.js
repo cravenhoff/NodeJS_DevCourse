@@ -64,9 +64,18 @@ const removeNote = title => {
     saveNote(notesToKeep);
 }
 
+// listNotes()
+const listNotes = () => {
+    console.log("Listing notes function...");
+    const notes = loadNotes();
+    console.log(notes);
+    // return notes;
+}
+
 // Export functions to use externally
 module.exports = {
     addNote: addNote,
     getNotes: getNotes,
-    removeNote: removeNote
+    removeNote: removeNote,
+    listNotes: listNotes
 };
