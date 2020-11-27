@@ -24,11 +24,16 @@ yargs.command({
     handler: function(argv) {
         console.log(chalk.underline.green("Adding a new note..."));
         notes.addNote(argv.title, argv.body);
-        // Output title property and option
-        // console.log("Title: " + argv.title);
-        // console.log("Body: " + argv.body);
     }
 });
+
+/* --- Challenge: Setup command option and function ---
+1. Setup the remove command and take a require "--title" option
+2. Create and export a removeNote function from notes.js
+3. Call removeNote in remove command handler
+4. Have removeNote log the title of the note to be removed
+5. Test your work using: node app.js remove --title="some title"
+*/
 
 // Create "remove" command
 yargs.command({
