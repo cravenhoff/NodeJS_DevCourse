@@ -34,7 +34,7 @@ const addNote = function(title, body) {
 const saveNote = function(notes) {
     const jsonNote = JSON.stringify(notes);
     fs.writeFileSync("notes.json", jsonNote);
-    console.log(chalk.bgGreen.black("Message: Note sucessfully added!"));
+    console.log(chalk.bgGreen.black("Message: Note(s) sucessfully added!"));
 }
 
 // loadNotes()
@@ -54,7 +54,6 @@ const removeNote = function(title) {
 
     // Load current notes
     const notes = loadNotes();
-    console.log(notes);
 
     // Remove matching note using array.filter()
     const notesToKeep = notes.filter(note => {
@@ -63,7 +62,7 @@ const removeNote = function(title) {
 
     if(notesToKeep.length < notes.length) {
         console.log(chalk.bgGreen.black("Note removed!"));
-    } else if(notesToKeep.length === notes.length) {
+    } else {
         console.log(chalk.bgRed.black("No note found!"));
     }
 

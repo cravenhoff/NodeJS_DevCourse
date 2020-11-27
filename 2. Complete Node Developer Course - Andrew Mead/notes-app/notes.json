@@ -1,1 +1,10 @@
-[{"title":"note","body":"A sample note."},{"title":"Marvel Classic","body":"Captain America - Cold War."},{"title":"Black Widow Movie","body":"We've got another hit movie coming out - Black Widow."}]
+[
+    {
+        "title": "Marvel Classic",
+        "body": "Captain America - Cold War."
+    },
+    {
+        "title": "Black Widow Movie",
+        "body": "We've got another hit movie coming out - Black Widow."
+    }
+]
