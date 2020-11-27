@@ -18,6 +18,15 @@ const addNote = function(title, body) {
         body: body
     });
 
+    saveNote(notes);
+
+}
+
+// saveNote()
+const saveNote = function(notes) {
+    const jsonNote = JSON.stringify(notes);
+    fs.writeFileSync("notes.json", jsonNote);
+    console.log(chalk.bgGreen.black("Note sucessfully added!"));
 }
 
 // loadNotes()
