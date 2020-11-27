@@ -18,4 +18,6 @@ console.log(JSONData.title); // Can't access property as JSONData is now a strin
 // Parse JSON Data
 const parsedData = JSON.parse(JSONData);
 console.log(parsedData.author);
-    
+
+// Create file for JSON Data
+fs.writeFileSync("1-json.json", JSONData);
