@@ -24,8 +24,6 @@ const tasks = {
     getTasksToDo: function(tasks) {
         // Short form ES6 Arrow Function
         return this.tasks.filter(task => task.completed === false);
-
-        return incompleteTasks;
     }
 }
 
