@@ -60,11 +60,18 @@ const removeNote = function(title) {
     const notesToKeep = notes.filter(note => {
         return note.title !== title;
     });
+
+    if(notesToKeep.length < notes.length) {
+        console.log(chalk.bgGreen.black("Note removed!"));
+    } else if(notesToKeep.length === notes.length) {
+        console.log(chalk.bgRed.black("No note found!"));
+    }
+
     console.log(notesToKeep);
     saveNote(notesToKeep);
 }
 
-// Export getNotes()
+// Export functions to use externally
 module.exports = {
     addNote: addNote,
     getNotes: getNotes,
