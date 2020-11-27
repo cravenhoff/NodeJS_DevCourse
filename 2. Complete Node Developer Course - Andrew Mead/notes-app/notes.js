@@ -8,9 +8,6 @@ const getNotes = function() {
 
 // addNote()
 const addNote = function(title, body) {
-    // console.log(title);
-    // console.log(body);
-
     const notes = loadNotes();
 
     // Check to see no duplicates
@@ -37,7 +34,7 @@ const addNote = function(title, body) {
 const saveNote = function(notes) {
     const jsonNote = JSON.stringify(notes);
     fs.writeFileSync("notes.json", jsonNote);
-    console.log(chalk.bgGreen.black("Note sucessfully added!"));
+    console.log(chalk.bgGreen.black("Message: Note sucessfully added!"));
 }
 
 // loadNotes()
@@ -52,9 +49,31 @@ const loadNotes = function() {
 }
 
 // removeNote()
+const removeNote = function(title) {
+    console.log(chalk.bgYellow.black(`"${title}"`));
 
-// Export getNotes()
+    // Load current notes
+    const notes = loadNotes();
+    console.log(notes);
+
+    // Remove matching note using array.filter()
+    const notesToKeep = notes.filter(note => {
+        return note.title !== title;
+    });
+
+    if(notesToKeep.length < notes.length) {
+        console.log(chalk.bgGreen.black("Note removed!"));
+    } else if(notesToKeep.length === notes.length) {
+        console.log(chalk.bgRed.black("No note found!"));
+    }
+
+    console.log(notesToKeep);
+    saveNote(notesToKeep);
+}
+
+// Export functions to use externally
 module.exports = {
     addNote: addNote,
-    getNotes: getNotes
+    getNotes: getNotes,
+    removeNote: removeNote
 };
