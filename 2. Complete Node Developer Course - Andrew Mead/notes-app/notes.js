@@ -76,10 +76,37 @@ const listNotes = () => {
     // console.log(notes);
 }
 
+// readNote()
+const readNote = title => {
+    const notes = loadNotes();
+
+    const matchingNote = notes.filter(note => note.title === title);
+    console.log(matchingNote);
+    console.log(matchingNote.length);
+
+    if(matchingNote.length === 0) {
+        console.log(chalk.bgRed.black("No note with that title exists!"));
+    } else {
+        matchingNote.forEach(note => {
+            console.log(chalk.bgGreen.black(note.title));
+            console.log(note.body);
+        })
+    }
+
+    // notes.forEach(note => {
+    //     if(note.title === title) {
+    //         console.log(chalk.bgGreen.inverse(note.title), note.body);
+    //     }
+    // });
+    // console.log(title);
+    // console.log(notes);
+}
+
 // Export functions to use externally
 module.exports = {
     addNote: addNote,
     getNotes: getNotes,
     removeNote: removeNote,
-    listNotes: listNotes
+    listNotes: listNotes,
+    readNote: readNote
 };
