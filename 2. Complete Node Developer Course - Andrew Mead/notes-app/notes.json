@@ -1,18 +1,1 @@
-[
-    {
-        "title": "Black Widow Movie",
-        "body": "We've got another hit movie coming out - Black Widow."
-    },
-    {
-        "title": "Arrow Functions",
-        "body": "Refactoring functions to use the arrow function syntax."
-    },
-    {
-        "title": "Stan Lee Classics",
-        "body": "Spider Man, Iron Man, Thor, Captain America."
-    },
-    {
-        "title": "Habit",
-        "body": "They are great masters or excellent servants for you."
-    }
-]
+[{"title":"Black Widow Movie","body":"We've got another hit movie coming out - Black Widow."},{"title":"Arrow Functions","body":"Refactoring functions to use the arrow function syntax."},{"title":"Stan Lee Classics","body":"Spider Man, Iron Man, Thor, Captain America."},{"title":"Habit","body":"They are great masters or excellent servants for you."},{"title":"Running","body":"A great long-term habit to build for serious people."}]
