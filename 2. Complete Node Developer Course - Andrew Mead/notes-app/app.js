@@ -28,7 +28,7 @@ yargs.command({
             type: "string"
         }
     },
-    handler: function(argv) {
+    handler(argv) {
         console.log(chalk.underline.green("Progress: Adding new note..."));
         notes.addNote(argv.title, argv.body);
     }
@@ -63,7 +63,7 @@ yargs.command({
             type: "string"
         }
     },
-    handler: function(argv) {
+    handler(argv) {
         console.log(chalk.underline.red("Progress: Removing note..."));
         notes.removeNote(argv.title);
     }
@@ -72,14 +72,14 @@ yargs.command({
 /* --- Challenge: Add two new commands ---
 1. Setup command to support "list" command {print out placeholder message for now}
 2. Setup command to support "read" command {print out placeholder message for now}
-3. Test your wokr by running both commands and ensure correct output
+3. Test your work by running both commands and ensure correct output
 */
 
 // Create "list" command
 yargs.command({
     command: "list",
     describe: "List all notes",
-    handler: function() {
+    handler() {
         console.log(chalk.bgBlue.black("Listing all the notes!"));
     }
 });
@@ -88,7 +88,7 @@ yargs.command({
 yargs.command({
     command: "read",
     describe: "Read note",
-    handler: function() {
+    handler() {
         console.log(chalk.bgWhite.black("Reading the note!"));
     }
 })
