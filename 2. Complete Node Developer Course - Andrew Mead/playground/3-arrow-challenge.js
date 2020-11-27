@@ -5,16 +5,30 @@
 */
 
 const tasks = {
-    tasks: [{
-        text: 'Grocery shopping',
-        completed: true
-    },{
-        text: 'Clean yard',
-        completed: false
-    }, {
-        text: 'Film course',
-        completed: false
-    }]
+    // Property 1: tasks
+    tasks: [
+        {
+            text: 'Grocery shopping',
+            completed: true
+        },
+        {
+            text: 'Clean yard',
+            completed: false
+        },
+        {
+            text: 'Film course',
+            completed: false
+        }
+    ],
+    // Property 2: getTasksToDo()
+    getTasksToDo: function(tasks) {
+        console.log(this.tasks);
+        const incompleteTasks = this.tasks.filter(task => {
+            return task.completed == false;
+        });
+
+        return incompleteTasks;
+    }
 }
 
-console.log(tasks.getTasksToDo())
+console.log(tasks.getTasksToDo());
