@@ -1,15 +1,15 @@
-// Starting script
-console.log("Starting...");
+const request = require("request");
 
-// 2 second timer script
-setTimeout(() => {
-    console.log("2 second timer...");
-}, 2000);
+// Store the weather API url
+const url = "http://api.weatherstack.com/current?access_key=ce0de027b68728e11dc342f845708fac&query=9.4438,147.1803";
 
-// 0 second timer
-setTimeout(() => {
-    console.log("0 secont timer...");
-}, 0);
+/* --- Goal: Print a small forecast to the user ---
+1. Print: "It is currently 9 degress out. It feels like 5 degrees out."
+2. Test your work!
+*/
 
-// Stopping script
-console.log("Stopping...");
+// Use request module
+request({url, json: true}, (err, response) => {
+    // console.log(response.body.current);
+    console.log(response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degrees out. It feels like " + response.body.current.feelslike + " degrees out.");
+});
