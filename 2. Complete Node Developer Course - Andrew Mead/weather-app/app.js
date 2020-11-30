@@ -12,7 +12,6 @@ const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Ange
 
 // Use request module
 request({url, json: true}, (err, response) => {
-    // console.log(response.body.current);
     console.log(chalk.bgBlueBright.black(
         "Port Moresby Forecast: " + response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degrees out. It feels like " + response.body.current.feelslike + " degrees out."
     ));
@@ -25,13 +24,11 @@ request({url, json: true}, (err, response) => {
 4. Test your work!
 */
 
+// Geocoding: Address => Lat/Long => Weather Forecast
 request({url: geocodeURL, json: true}, (err, response) => {
-    // console.log(response.body.features[0].center);
-    // const coordinates = response.body.features[0].center;
-    // coordinates.forEach(coordinate => {
-    //     console.log(coordinate);
-    // });
+    const lat = response.body.features[0].center[1];
+    const long = response.body.features[0].center[0];
     console.log(chalk.bgGreenBright.black(
-        "Latitude: " + response.body.features[0].center[0] + ". Longitude: " + response.body.features[0].center[0]
+        "Lat: " + lat + " Long: " + long
     ));
 });
