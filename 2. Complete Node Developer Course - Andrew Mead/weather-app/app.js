@@ -1,4 +1,7 @@
 const request = require("request");
+const chalk = require("chalk");
+
+console.log(chalk);
 
 // Store the weather API url
 const url = "http://api.weatherstack.com/current?access_key=ce0de027b68728e11dc342f845708fac&query=9.4438,147.1803";
