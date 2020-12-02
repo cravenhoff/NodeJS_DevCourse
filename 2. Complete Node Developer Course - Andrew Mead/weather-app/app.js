@@ -2,7 +2,7 @@ const request = require("request");
 const chalk = require("chalk");
 
 // Store the weather API url
-const url = "http://api.weatherstack.com/current?access_key=ce0de027b68728e11dc342f845708fac&query=9.4438,147.1803";
+const url = "http://api.weatherstack.com/current?access_key=ce0de027b68728e11dc342f845708fac&query=Port%20Moresby";
 const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Port%20Moresby.json?access_token=pk.eyJ1IjoiY3JhdmVuaG9mZiIsImEiOiJja2k0cGFubGkwMmR2MnlyendjdHp5MzZyIn0.aT54AdcByG5QXRRHE0stfQ&limit=1";
 
 /* --- Goal 1: Print a small forecast to the user ---
@@ -12,14 +12,17 @@ const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Port%20Mor
 
 // Use request module
 request({url, json: true}, (err, response) => {
+    // city name, weather description, temperature, feels like, precipitation, humidity and wind speed
+    const city = response.body.location.name;
     const weatherDesc = response.body.current.weather_descriptions[0];
     const temp = response.body.current.temperature;
     const feelsLike = response.body.current.feelslike;
     const precip = response.body.current.precip;
     const humidity = response.body.current.humidity;
     const windSpeed = response.body.current.wind_speed;
+    console.log(chalk.bgBlueBright.black.underline(city + " Forecast:"))
     console.log(chalk.bgBlueBright.black(
-        "Port Moresby Forecast: \n" + weatherDesc + ". It is currently " + temp + " degrees out. It feels like " + feelsLike + " degrees out. \nPrecipiation: " + precip + "% \nHumidity: " + humidity + "% \nWind Speed: " + windSpeed + "km/h"
+        weatherDesc + ". It is currently " + temp + " degrees out. It feels like " + feelsLike + " degrees out. \nPrecipiation: " + precip + "% \nHumidity: " + humidity + "% \nWind Speed: " + windSpeed + "km/h"
     ));
 });
 
