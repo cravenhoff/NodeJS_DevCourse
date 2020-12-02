@@ -12,8 +12,11 @@ const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Ange
 
 // Use request module
 request({url, json: true}, (err, response) => {
+    const weatherDesc = response.body.current.weather_descriptions[0];
+    const temp = response.body.current.temperature;
+    const feelsLike = response.body.current.feelsLike;
     console.log(chalk.bgBlueBright.black(
-        "Port Moresby Forecast: " + response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degrees out. It feels like " + response.body.current.feelslike + " degrees out."
+        "Port Moresby Forecast: " + weatherDesc + ". It is currently " + temp + " degrees out. It feels like " + feelsLike + " degrees out."
     ));
 });
 
