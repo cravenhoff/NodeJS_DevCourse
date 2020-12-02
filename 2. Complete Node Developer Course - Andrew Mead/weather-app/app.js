@@ -13,19 +13,14 @@ const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Port%20Mor
 // Use request module
 request({url, json: true}, (err, response) => {
     if(err) {
-        console.log(chalk.bgRedBright.black("Unable to connect to weather service..."));
+        console.log(chalk.bgRedBright.black("Unable to connect to weather services!"));
+    } else if(response.body.error) {
+        console.log(chalk.bgRedBright.black("Unable to find location!"));
     } else {
         // city name, weather description, temperature, feels like, precipitation, humidity and wind speed
-        const city = response.body.location.name;
-        const weatherDesc = response.body.current.weather_descriptions[0];
-        const temp = response.body.current.temperature;
-        const feelsLike = response.body.current.feelslike;
-        const precip = response.body.current.precip;
-        const humidity = response.body.current.humidity;
-        const windSpeed = response.body.current.wind_speed;
-        console.log(chalk.bgBlueBright.black.underline(city + " Forecast:"));
+        console.log(chalk.bgBlueBright.black.underline(response.body.location.name + " Forecast:"));
         console.log(chalk.bgBlueBright.black(
-            weatherDesc + ". It is currently " + temp + " degrees out. It feels like " + feelsLike + " degrees out. \nPrecipiation: " + precip + "% \nHumidity: " + humidity + "% \nWind Speed: " + windSpeed + "km/h"
+            response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degrees out. It feels like " + response.body.current.feelslike + " degrees out. \nPrecipiation: " + response.body.current.precip + "% \nHumidity: " + response.body.current.humidity + "% \nWind Speed: " + response.body.current.wind_speed + "km/h"
         ));
     }
 });
@@ -37,15 +32,22 @@ request({url, json: true}, (err, response) => {
 4. Test your work!
 */
 
+/* --- Goal 3: Handle errors for geocoding request ---
+1. Setup an error handler for low-level errors
+2. Test by disabling network request and running the app
+3. Setup error handling for no matching results
+4. Test by altering the search term and running the app
+*/
+
 // Geocoding: Address => Lat/Long => Weather Forecast
 request({url: geocodeURL, json: true}, (err, response) => {
     if(err) {
-        console.log(chalk.bgRedBright.black("Unable to connect to geocode service..."));
+        console.log(chalk.bgRedBright.black("Unable to connect to location services!"));
+    } else if(response.body.features.length === 0) {
+        console.log(chalk.bgRedBright.black("Unable to find location. Try another search!"));
     } else {
         const lat = response.body.features[0].center[1];
         const long = response.body.features[0].center[0];
-        console.log(chalk.bgGreenBright.black(
-            "Lat: " + lat + " Long: " + long
-        ));
+        console.log(chalk.bgGreenBright.black("Lat: " + lat + " Long: " + long));
     }
-});
+}); 
