@@ -12,18 +12,22 @@ const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Port%20Mor
 
 // Use request module
 request({url, json: true}, (err, response) => {
-    // city name, weather description, temperature, feels like, precipitation, humidity and wind speed
-    const city = response.body.location.name;
-    const weatherDesc = response.body.current.weather_descriptions[0];
-    const temp = response.body.current.temperature;
-    const feelsLike = response.body.current.feelslike;
-    const precip = response.body.current.precip;
-    const humidity = response.body.current.humidity;
-    const windSpeed = response.body.current.wind_speed;
-    console.log(chalk.bgBlueBright.black.underline(city + " Forecast:"))
-    console.log(chalk.bgBlueBright.black(
-        weatherDesc + ". It is currently " + temp + " degrees out. It feels like " + feelsLike + " degrees out. \nPrecipiation: " + precip + "% \nHumidity: " + humidity + "% \nWind Speed: " + windSpeed + "km/h"
-    ));
+    if(err) {
+        console.log(chalk.bgRedBright.black("Unable to connect to weather service..."));
+    } else {
+        // city name, weather description, temperature, feels like, precipitation, humidity and wind speed
+        const city = response.body.location.name;
+        const weatherDesc = response.body.current.weather_descriptions[0];
+        const temp = response.body.current.temperature;
+        const feelsLike = response.body.current.feelslike;
+        const precip = response.body.current.precip;
+        const humidity = response.body.current.humidity;
+        const windSpeed = response.body.current.wind_speed;
+        console.log(chalk.bgBlueBright.black.underline(city + " Forecast:"));
+        console.log(chalk.bgBlueBright.black(
+            weatherDesc + ". It is currently " + temp + " degrees out. It feels like " + feelsLike + " degrees out. \nPrecipiation: " + precip + "% \nHumidity: " + humidity + "% \nWind Speed: " + windSpeed + "km/h"
+        ));
+    }
 });
 
 /* --- Goal 2: Print the lat/long for Los Angeles ---
@@ -35,9 +39,13 @@ request({url, json: true}, (err, response) => {
 
 // Geocoding: Address => Lat/Long => Weather Forecast
 request({url: geocodeURL, json: true}, (err, response) => {
-    const lat = response.body.features[0].center[1];
-    const long = response.body.features[0].center[0];
-    console.log(chalk.bgGreenBright.black(
-        "Lat: " + lat + " Long: " + long
-    ));
+    if(err) {
+        console.log(chalk.bgRedBright.black("Unable to connect to geocode service..."));
+    } else {
+        const lat = response.body.features[0].center[1];
+        const long = response.body.features[0].center[0];
+        console.log(chalk.bgGreenBright.black(
+            "Lat: " + lat + " Long: " + long
+        ));
+    }
 });
