@@ -3,7 +3,7 @@ const chalk = require("chalk");
 
 // Store the weather API url
 const url = "http://api.weatherstack.com/current?access_key=ce0de027b68728e11dc342f845708fac&query=9.4438,147.1803";
-const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiY3JhdmVuaG9mZiIsImEiOiJja2k0cGFubGkwMmR2MnlyendjdHp5MzZyIn0.aT54AdcByG5QXRRHE0stfQ&limit=1";
+const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/Port%20Moresby.json?access_token=pk.eyJ1IjoiY3JhdmVuaG9mZiIsImEiOiJja2k0cGFubGkwMmR2MnlyendjdHp5MzZyIn0.aT54AdcByG5QXRRHE0stfQ&limit=1";
 
 /* --- Goal 1: Print a small forecast to the user ---
 1. Print: "It is currently 9 degress out. It feels like 5 degrees out."
