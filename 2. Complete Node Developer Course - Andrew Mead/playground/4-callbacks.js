@@ -11,3 +11,16 @@ const shortNames = people.filter((person) => {
 
 console.log(people);
 console.log(shortNames);
+
+// Geo-Coding Sample: Pre-Callback Function
+const geocode = (address, callback) => {
+    const data = {
+        latitude: 0,
+        longitude: 0
+    };
+
+    return data;
+}
+
+data = geocode("Port Moresby");
+console.log(data);
