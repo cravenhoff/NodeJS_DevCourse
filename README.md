@@ -1,2 +1,2 @@
 # NodeJS CrashCourse
-Node JS Crash Course delivered by Traversy Media. This tutorial is used as a guide to supplement the Node Training received through the Switch Maven Pacifica Prime Bootcamp.
+A compilation repo of all Crash Courses on Node JS I've studied from Traversy Media on Youtube to Andrew Mead on Udemy. This tutorial is used both as a prep and guide supplementing the Node Training received through the Switch Maven Pacifica Prime Bootcamp.
