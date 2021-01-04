@@ -12,14 +12,16 @@ const shortNames = people.filter((person) => {
 console.log(people);
 console.log(shortNames);
 
-// Geo-Coding Sample: Pre-Callback Function
+// Geo-Coding Sample: Asynchronous Pre-Callback Function with setTimeout()
 const geocode = (address, callback) => {
-    const data = {
-        latitude: 0,
-        longitude: 0
-    };
-
-    return data;
+    setTimeout(() => {
+        const data = {
+            latitude: 0,
+            longitude: 0
+        };
+    
+        return data;
+    }, 2000);
 }
 
 data = geocode("Port Moresby");
